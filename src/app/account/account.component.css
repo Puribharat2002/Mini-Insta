@@ -1,0 +1,120 @@
+/* Account Creation Component */
+.container {
+    max-width: 500px;
+    margin: 10px auto; /* Increased margin for more spacing */
+    padding: 25px;
+    margin-top: calc(100px + 10px); /* Added dynamic spacing similar to HomeComponent */
+    background: #d3b09c;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 13px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  h2 {
+    color: #cc078a;
+    font-size: 1.6rem; /* Adjusted font size for better visibility */
+    margin-bottom: 30px;
+    margin-top: 0;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: row; /* Arrange label and input side by side */
+    align-items: center;
+    gap: 15px; /* Added spacing similar to HomeComponent */
+  }
+  
+  label {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+    text-align: left;
+    width: 120px; /* Fixed width for label alignment */
+  }
+  
+  input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    font-weight: bold; /* Added bold input text for consistency */
+    transition: all 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #3498db;
+    box-shadow: 0px 0px 8px rgba(52, 152, 219, 0.5);
+  }
+  
+  button {
+    width: 100%;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem; /* Adjusted font size for uniformity */
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  h4{
+    margin: 10px;
+    color: #050104;
+  }
+  
+  button:hover {
+    background-color: #490257;
+    transform: translateY(-3px);
+  }
+  
+  .login-button {
+    background-color: #3498db;
+  }
+  
+  .login-button:hover {
+    background-color: #480151;
+  }
+  
+  footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #15abb6;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px;
+      margin: 20px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 12px;
+    }
+  
+    input {
+      padding: 14px;
+    }
+  }
+  

@@ -1,0 +1,38 @@
+<div class="container">
+    <h2>{{ isLoginMode ? 'Login' : 'Create Account' }}</h2>
+    <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+      <div class="input-group">
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" type="email" placeholder="Enter your email" />
+        <div *ngIf="accountForm.get('email')?.invalid && accountForm.get('email')?.touched">
+          <small class="error" *ngIf="accountForm.get('email')?.errors?.['required']">
+            Email is required.
+          </small>
+          <small class="error" *ngIf="accountForm.get('email')?.errors?.['email']">
+            Please enter a valid email address.
+          </small>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input id="password" formControlName="password" type="password" placeholder="Enter your password" />
+      </div>
+      <div class="input-group" *ngIf="!isLoginMode">
+        <label for="confirmPassword">Confirm:</label>
+        <input id="confirmPassword" formControlName="confirmPassword" type="password"
+          placeholder="Confirm your password" />
+      </div>
+      <button type="submit" [disabled]="isLoading">
+        {{ isLoginMode ? 'Login' : 'Create Account' }}
+      </button>
+    </form>
+    <h4>OR</h4>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <div *ngIf="isLoading" class="loading">Processing...</div>
+    <div class="toggle-text">
+      <button (click)="toggleMode()">
+        Switch to {{ isLoginMode ? 'Create Account' : 'Login' }}
+      </button>
+    </div>
+  </div>
+  

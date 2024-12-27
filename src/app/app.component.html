@@ -1,0 +1,17 @@
+<div class="header">
+  <span class="brand-name">Instagram</span>
+  <div class="user-info">
+    <span *ngIf="userName" class="username">{{ userName }}</span>
+    <div class="dropdown">
+      <i
+        class="fa-solid fa-user user-icon"
+        (click)="toggleDropdown()"
+        aria-hidden="true"
+      ></i>
+      <ul *ngIf="dropdownOpen" class="dropdown-menu">
+        <li (click)="logout()">Logout</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

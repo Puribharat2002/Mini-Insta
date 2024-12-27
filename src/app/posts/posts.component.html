@@ -1,0 +1,46 @@
+<div *ngIf="userEmail" class="posts">
+    <!-- Textarea for typing content -->
+    <textarea #postContent placeholder="Say something here..."></textarea>
+    
+    <!-- Button container for posting content and uploading an image -->
+    <div class="button-container">
+      <button (click)="onAddPost(postContent.value)">Post</button>
+      <div class="upload-image">
+        <button (click)="fileInput.click()">
+          <span>-----Upload Image------</span>
+        </button>
+        <input #fileInput type="file" accept="image/*" style="display: none" (change)="onImageSelected($event)" />
+      </div>
+    </div>
+  
+    <!-- Loop through posts -->
+    <div *ngFor="let post of posts" class="post-item">
+      <p>{{ post.content }}</p>
+      <img [src]="post.imageUrl" *ngIf="post.imageUrl" class="image-preview" />
+  
+      <!-- Like Button -->
+      <div class="like-comment-section">
+        <span class="heart" (click)="onLike(post)">❤️ {{ post.likes }}</span>
+      </div>
+      <hr>
+      Comments
+  
+      <!-- Comment Section -->
+      <div class="comment-section">
+        <div class="comment-input">
+          <input #commentText placeholder="Add comment" />
+          <button (click)="onAddComment(post, commentText.value)">Comment</button>
+        </div>
+        <div *ngFor="let comment of post.comments" class="comment">
+          <span class="comment-name">{{ comment.name }}</span>
+          <span>{{ comment.text }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Message for user to log in if not authenticated -->
+  <div *ngIf="!userEmail" class="login-message">
+    Please log in to see and add posts.
+  </div>
+  
